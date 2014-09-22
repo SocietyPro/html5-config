@@ -10,21 +10,62 @@
     <link href="bower_components/sopro-material/css/angular-material.css" rel="stylesheet">
     <link href="bower_components/sopro-material/css/sopro-material.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="bower_components/roboto/2014/roboto-woff.css">
+    <style>
+    nav{
+      background-color: #cddc39;
+      min-height: 80px;
+      line-height: 80px;
+      font-size: 40px;
+      font-family: RobotoSlab, inconsolata, consolas, monospace;
+    }
+    section#config{
+      padding: 16px;
+      max-width: 80%;
+      margin: auto;
+    }
+    section .configItem{
+      margin: 16px 0 16px 0;
+      border-bottom: 1px dashed rgba(0,0,0,0.3);
+    }
+    section .configItem:first-child{
+      margin-top: 0px;
+    }
+    section .configItem:last-child{
+      margin-bottom: 0px;
+      border-bottom: none;
+    }
+    section#config label,
+    section#config material-input,
+    section#config material-checkbox{
+      display: block;
+      margin: 0 0 8px 0;
+    }
+    </style>
   </head>
   <body layout="vertical" ng-app="configApp" ng-controller="configAppCtrl">
     <nav layout="horizontal" layout-align="space-around">
       <div>Society Pro Configuration</div>
     </nav>
     <section id="config" flex>
-    <material-input-group>
-      <label> Enable Sounds </label>
-      <material-checkbox ng-model="config.audioEnabled" ng-change='setAudioEnabled()'>
-      </material-checkbox>
-    </material-input-group>
-    <material-input-group>
-      <label> Set Developer Apps Folder </label>
-      <material-input ng-model="config.devAppsDir" ng-change='setDevAppsDir()'>
-    </material-input-group>
+      <div class="configItem">
+        <material-checkbox 
+        id="setAudioEnabled"
+        ng-model="config.audioEnabled" 
+        ng-change='setAudioEnabled()'
+        >
+        Enable Sounds
+        </material-checkbox>
+      </div>
+      <div class="configItem">
+        <label for="setDevApps2"> 
+          Set Developer Apps Folder 
+        <material-input 
+        id="setDevApps"
+        ng-model="config.devAppsDir" 
+        ng-change='setDevAppsDir()'
+        >
+        </label>
+      </div>
     </section>
   </body>
 </html>
