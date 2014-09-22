@@ -36,5 +36,7 @@ Don't run the Gruntfile if you have unpushed changes you want to keep.
 The results of the grunt distribution script are packaged and distributed at [the dist repo](https://github.com/sopro-dist/html5-config).
 
     $ npm install -g grunt-cli       # if you don't already have grunt
+    $ npm install                    # if you do have grunt
+    
     $ cd html5-config                # root folder
     $ grunt
