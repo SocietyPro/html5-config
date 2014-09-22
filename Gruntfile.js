@@ -16,13 +16,30 @@ module.exports = function(grunt) {
         }
       },
     },
+    clean:{
+      dist: {
+        src: [
+          "bower_components/jquery/src/**/*",
+          "node_modules", 
+          "test", 
+          ".git",
+          ".gitignore",
+          ".gitmodules",
+          "Gruntfile.js",
+          "package.json", 
+          "bower.json",
+        ],
+      },
+    },
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task.
   grunt.registerTask('default', [
     'bower:install',
+    'clean:dist',
   ]);
 };
